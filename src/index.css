@@ -1,0 +1,139 @@
+@import "tailwindcss";
+
+@layer base {
+  :root {
+    --bg-main: #120e0b;
+    --bg-alt: #1a1410;
+    --surface-card: #221a14;
+    --surface-card-hi: #2c221a;
+    --border-gold: #3e3020;
+    --gold: #c6994f;
+    --gold-bright: #e7c07f;
+    --gold-light: #f4deaf;
+    --ink: #ede2d0;
+    --ink-dim: #b8a892;
+    --muted: #857562;
+    --wine: #7a3040;
+    --indigo: #3d4f6e;
+  }
+
+  body {
+    font-family: 'Crimson Pro', Georgia, serif;
+    background-color: var(--bg-main);
+    color: var(--ink);
+  }
+}
+
+.font-cinzel {
+  font-family: 'Cinzel', serif;
+}
+
+.font-garamond {
+  font-family: 'Cormorant Garamond', serif;
+}
+
+.font-crimson {
+  font-family: 'Crimson Pro', serif;
+}
+
+.font-sans {
+  font-family: 'Jost', 'Plus Jakarta Sans', sans-serif;
+}
+
+/* Custom scrollbars */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: #18120d;
+}
+::-webkit-scrollbar-thumb {
+  background: #3e3020;
+  border-radius: 3px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #c6994f;
+}
+
+/* Glow & shimmer utilities */
+@keyframes pulse-subtle {
+  0%, 100% { opacity: 0.85; transform: scale(1); }
+  50% { opacity: 1; transform: scale(1.05); }
+}
+
+.animate-pulse-subtle {
+  animation: pulse-subtle 3s ease-in-out infinite;
+}
+
+@keyframes ring-glow {
+  0%, 100% { box-shadow: 0 0 15px rgba(198, 153, 79, 0.25); }
+  50% { box-shadow: 0 0 25px rgba(231, 192, 127, 0.45); }
+}
+
+.glow-gold {
+  animation: ring-glow 3s infinite ease-in-out;
+}
+
+/* Ambient Aura Background Animations */
+@keyframes aura-slow {
+  0% {
+    transform: translate(0px, 0px) scale(1);
+    opacity: 0.75;
+  }
+  33% {
+    transform: translate(40px, -30px) scale(1.12);
+    opacity: 1;
+  }
+  66% {
+    transform: translate(-30px, 40px) scale(0.92);
+    opacity: 0.85;
+  }
+  100% {
+    transform: translate(0px, 0px) scale(1);
+    opacity: 0.75;
+  }
+}
+
+@keyframes aura-reverse {
+  0% {
+    transform: translate(0px, 0px) scale(1);
+    opacity: 0.7;
+  }
+  33% {
+    transform: translate(-50px, 30px) scale(1.15);
+    opacity: 0.95;
+  }
+  66% {
+    transform: translate(35px, -35px) scale(0.9);
+    opacity: 0.8;
+  }
+  100% {
+    transform: translate(0px, 0px) scale(1);
+    opacity: 0.7;
+  }
+}
+
+@keyframes pulse-gentle {
+  0%, 100% {
+    transform: scale(1) translate(0, 0);
+    opacity: 0.6;
+  }
+  50% {
+    transform: scale(1.18) translate(15px, -15px);
+    opacity: 0.95;
+  }
+}
+
+.animate-aura-slow {
+  animation: aura-slow 20s ease-in-out infinite;
+}
+
+.animate-aura-reverse {
+  animation: aura-reverse 26s ease-in-out infinite;
+}
+
+.animate-pulse-gentle {
+  animation: pulse-gentle 16s ease-in-out infinite;
+}
+

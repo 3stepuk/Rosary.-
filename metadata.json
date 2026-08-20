@@ -1,0 +1,6 @@
+{
+  "name": "One Decade",
+  "description": "A serene, elegant Rosary bracelet prayer companion with interactive bead strands, scriptural meditations, and ambient audio.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
