@@ -140,6 +140,12 @@ export default function App() {
 
   const currentStep = currentSequence[appState.step] || currentSequence[0];
 
+  // The mystery stays pinned from the medal onward, so the contemplation
+  // is never covered up by the Hail Mary text.
+  const pinnedMystery = MYSTERY_DATA[appState.set].mysteries[appState.mysteryIndex];
+  const ORDINALS = ['First', 'Second', 'Third', 'Fourth', 'Fifth'];
+  const showPinnedMystery = appState.step >= 7;
+
   // Navigation handlers
   const handleSelectStep = (stepIdx: number) => {
     if (stepIdx >= 0 && stepIdx < currentSequence.length) {
@@ -353,6 +359,28 @@ export default function App() {
           />
         ) : (
           <>
+            {showPinnedMystery && (
+              <div className="mx-auto mb-2 mt-4 w-full overflow-hidden rounded-2xl border border-[#c6994f]/30 bg-[#1a1410]/90 px-5 py-4">
+                <div className="flex flex-wrap items-baseline justify-between gap-x-4 gap-y-1">
+                  <div>
+                    <div className="font-sans text-[10px] font-semibold uppercase tracking-[0.25em] text-[#c6994f]/80">
+                      The {ORDINALS[appState.mysteryIndex]} {MYSTERY_DATA[appState.set].label} Mystery
+                    </div>
+                    <div className="font-cinzel text-xl font-semibold text-[#e7c07f]">
+                      {pinnedMystery.title}
+                    </div>
+                  </div>
+                  <div className="font-sans text-[11px] text-[#b8a892]">
+                    {pinnedMystery.scripture} &middot; Fruit:{' '}
+                    <span className="text-[#e7c07f]">{pinnedMystery.fruit}</span>
+                  </div>
+                </div>
+                <p className="mt-2 font-crimson text-[15px] leading-relaxed text-[#c9b9a1]">
+                  {pinnedMystery.reflection}
+                </p>
+              </div>
+            )}
+
             <PrayerCard
               step={currentStep}
               currentStepIndex={appState.step}
