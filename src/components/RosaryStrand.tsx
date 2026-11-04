@@ -313,7 +313,13 @@ export const RosaryStrand: React.FC<RosaryStrandProps> = ({
                     {bead.type === 'medal' && (
                       <g>
                         <ellipse cx={pos.x} cy={pos.y} rx="12" ry="15" fill={color} stroke="#e7c07f" strokeWidth="1.5" />
-                        <path d={`M ${pos.x} ${pos.y - 7} L ${pos.x} ${pos.y + 6} M ${pos.x - 5} ${pos.y - 2} L ${pos.x + 5} ${pos.y - 2}`} stroke="#120e0b" strokeWidth="1.5" strokeLinecap="round" />
+                        {/* A figure, not a cross: the cross belongs on the crucifix only. */}
+                        <circle cx={pos.x} cy={pos.y - 5} r="2.4" fill="#120e0b" opacity="0.85" />
+                        <path
+                          d={`M ${pos.x - 5} ${pos.y + 7} L ${pos.x} ${pos.y - 1} L ${pos.x + 5} ${pos.y + 7} Z`}
+                          fill="#120e0b"
+                          opacity="0.7"
+                        />
                       </g>
                     )}
 
